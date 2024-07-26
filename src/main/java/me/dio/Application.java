@@ -1,19 +1,24 @@
-package me.dio.bootcampsantander;
+package me.dio;
 
-import org.springframework.core.env.Environment;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.servers.Server;
+
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.core.env.Environment;
 
-import java.util.Arrays;
+@OpenAPIDefinition(servers = { @Server(url = "/", description = "Default Server URL")})
 @SpringBootApplication
-public class DioBootcampSantanderApplication implements CommandLineRunner {
+public class Application implements CommandLineRunner {
 
-	 @Autowired
+	@Autowired
     private Environment env;
 	public static void main(String[] args) {
-		SpringApplication.run(DioBootcampSantanderApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 	@Override

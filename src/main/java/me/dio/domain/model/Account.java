@@ -1,39 +1,32 @@
-package me.dio.bootcampsantander.domain.model;
+package me.dio.domain.model;
+
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
-
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-
-@Entity(name="tb_account")
+@Entity(name = "tb_account")
 public class Account {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    
+    private Long id;
+
+    @Column(unique = true)
     private String number;
 
-    
     private String agency;
 
-    @Column(scale=13,precision=2)
+    @Column(precision = 13, scale = 2)
     private BigDecimal balance;
-    
-    @Column(name="additional_limit",scale=13,precision=2)
+
+    @Column(name = "additional_limit", precision = 13, scale = 2)
     private BigDecimal limit;
 
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -68,10 +61,5 @@ public class Account {
     public void setLimit(BigDecimal limit) {
         this.limit = limit;
     }
-
-    
-
-
-
 
 }

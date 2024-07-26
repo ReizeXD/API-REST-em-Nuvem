@@ -1,31 +1,26 @@
-package me.dio.bootcampsantander.domain.model;
-
-
-
+package me.dio.domain.model;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 
-
 @MappedSuperclass
 public abstract class BaseItem {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    
+    private Long id;
 
     private String icon;
 
     private String description;
 
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -37,13 +32,12 @@ public abstract class BaseItem {
         this.icon = icon;
     }
 
-    public String getDescripton() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescripton(String descripton) {
-        this.description = descripton;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-        
 }
